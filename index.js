@@ -3,13 +3,13 @@ const bodyParser = require('body-parser');
 require('dotenv/config');
 
 const UserController = require('./controllers/UserController');
+const Categories = require('./controllers/Categories');
+const LoginController = require('./controllers/LoginController');
 
 const validateUser = require('./controllers/middlewares/validateUser');
 const validateLogin = require('./controllers/middlewares/validateLogin');
-const loginController = require('./controllers/LoginController');
 const validateToken = require('./controllers/middlewares/validateToken');
 const validateCateg = require('./controllers/middlewares/ValidateCateg');
-const Categories = require('./controllers/Categories');
 
 const app = express();
 
@@ -34,7 +34,7 @@ app.post('/login',
 validateLogin.validateEmail,
 validateLogin.validatePassword,
 validateLogin.validateLogin,
-loginController);
+LoginController);
 
 // Requisito 3 - Sua aplicação deve ter o endpoint GET /user
 app.get('/user',
@@ -44,9 +44,12 @@ validateToken, UserController.getAll);
 app.get('/user/:id',
 validateToken, UserController.getById);
 
-// // Requisito 5 - Sua aplicação deve ter o endpoint POST /categories
+// Requisito 5 - Sua aplicação deve ter o endpoint POST /categories
 app.post('/categories',
 validateToken,
 validateCateg, Categories.add);
 
-
+// 6 - Sua aplicação deve ter o endpoint GET /categories
+app.get('/categories',
+  validateToken,
+  Categories.getAll);
