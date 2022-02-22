@@ -1,4 +1,4 @@
-// const { Users } = require('../models/user');
+const { Users } = require('../../models');
 
 const validateName = (req, res, next) => {
   const { displayName } = req.body;
@@ -21,7 +21,9 @@ const validateEmail = async (req, res, next) => {
     return res.status(400).json({ message: '"email" must be a valid email' });
   }
 
-  // if (user) return res.status(409).json({ message: 'User already registered' });
+  const findUser = await Users.findOne({ where: { email } });
+
+  if (findUser) return res.status(409).json({ message: 'User already registered' });
 
   next();
 };

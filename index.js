@@ -4,7 +4,7 @@ require('dotenv/config');
 
 const UserController = require('./controllers/UserController');
 
-const validateUserMiddleware = require('./middlewares/user');
+const validateUser = require('./controllers/middlewares/validateUser');
 
 const app = express();
 
@@ -19,7 +19,7 @@ app.get('/', (request, response) => {
 
 // Requisito 1
 app.post('/user',
-  validateUserMiddleware.validateName,
-  validateUserMiddleware.validateEmail,
-  validateUserMiddleware.validatePassword,
+  validateUser.validateName,
+  validateUser.validateEmail,
+  validateUser.validatePassword,
   UserController.add);

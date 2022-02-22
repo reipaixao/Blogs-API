@@ -9,9 +9,11 @@ const add = async (displayName, email, password, image) => {
     image,
   });
 
-  const token = jwt.sign({ displayName });
+  const token = jwt.sign({ email });
 
   return token;
 };
 
-module.exports = { add };
+module.exports = {
+  add,
+};
