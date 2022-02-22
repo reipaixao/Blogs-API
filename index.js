@@ -1,6 +1,14 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+require('dotenv/config');
+
+const UserController = require('./controllers/UserController');
+
+const validateUserMiddleware = require('./middlewares/user');
 
 const app = express();
+
+app.use(bodyParser.json());
 
 app.listen(3000, () => console.log('ouvindo porta 3000!'));
 
@@ -8,3 +16,10 @@ app.listen(3000, () => console.log('ouvindo porta 3000!'));
 app.get('/', (request, response) => {
   response.send();
 });
+
+// Requisito 1
+app.post('/user',
+  validateUserMiddleware.validateName,
+  validateUserMiddleware.validateEmail,
+  validateUserMiddleware.validatePassword,
+  UserController.add);
