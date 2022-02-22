@@ -8,6 +8,8 @@ const validateUser = require('./controllers/middlewares/validateUser');
 const validateLogin = require('./controllers/middlewares/validateLogin');
 const loginController = require('./controllers/LoginController');
 const validateToken = require('./controllers/middlewares/validateToken');
+const validateCateg = require('./controllers/middlewares/ValidateCateg');
+const Categories = require('./controllers/Categories');
 
 const app = express();
 
@@ -41,3 +43,10 @@ validateToken, UserController.getAll);
 // Requisito 4 - Sua aplicação deve ter o endpoint GET /user/:id
 app.get('/user/:id',
 validateToken, UserController.getById);
+
+// // Requisito 5 - Sua aplicação deve ter o endpoint POST /categories
+app.post('/categories',
+validateToken,
+validateCateg, Categories.add);
+
+
