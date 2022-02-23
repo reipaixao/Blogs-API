@@ -25,8 +25,18 @@ const getById = async (id) => {
   return getUserById;
 };
 
+const getUserByEmail = async (email) => {
+  const userByEmail = await Users.findOne({ where: { email } });
+  
+  return userByEmail;
+};
+
+const remove = async (id) => Users.destroy({ where: { id } });
+
 module.exports = {
   add,
   getAll,
   getById,
+  remove,
+  getUserByEmail,
 };

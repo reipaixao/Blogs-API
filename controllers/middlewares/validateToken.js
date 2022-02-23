@@ -1,21 +1,27 @@
 const jwt = require('jsonwebtoken');
 
-module.exports = (req, res, next) => {
-  const { authorization: token } = req.headers;
+const User = require('../../services/User');
 
-  const secret = process.env.JWT_SECRET;
+const { JWT_SECRET } = process.env;
+
+const jwtConfig = { algorithms: ['HS256'] };
+
+module.exports = async (req, res, next) => {
+  const token = req.headers.authorization;
 
   if (!token) {
-    return res.status(401).json({ message: 'Token not found' });
-  }
+      return res.status(401).json({ message: 'Token not found' });
+    }
+    try {
+      const { email } = jwt.verify(token, JWT_SECRET, jwtConfig);
+      
+      const userByEmail = await User.getUserByEmail(email);
 
-  try {
-    const { data } = jwt.verify(token, secret);
+      req.user = userByEmail;
 
-    req.jwt = data;
-
-    next();
-  } catch (error) {
-      return res.status(401).json({ message: 'Expired or invalid token' });
-  }
+      return next();
+    } catch (error) {
+        console.log(error);
+        return res.status(401).json({ message: 'Expired or invalid token' });
+    }
 };

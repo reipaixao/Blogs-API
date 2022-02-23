@@ -1,17 +1,21 @@
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
-const { JWT_SECRET } = process.env;
+const secret = process.env.JWT_SECRET;
 
-const sign = (payload, duration = '1h') =>
-  jwt.sign(payload, JWT_SECRET, {
-    algorithm: 'HS256',
-    expiresIn: duration,
-  });
+const sign = (payload) => {
+    const options = {
+        algorithm: 'HS256',
+        expiresIn: '1h',
+    };
 
-const verify = (token) =>
-  jwt.verify(token, JWT_SECRET, { algorithms: ['HS256'] });
+    const token = jwt.sign(payload, secret, options);
+    return token;
+};
+
+const verify = (token) => jwt.verify(token, secret, { algorithms: ['HS256'] });
 
 module.exports = {
-  sign,
-  verify,
+    sign,
+    verify,
 };

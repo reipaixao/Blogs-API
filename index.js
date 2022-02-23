@@ -72,3 +72,23 @@ PostController.getAll);
 app.get('/post/:id',
 validateToken,
 PostController.getById);
+
+//  Requisito 10 - Sua aplicação deve ter o endpoint PUT /post/:id
+app.put('/post/:id',
+validateToken,
+validatePost.validateTitleAndContent,
+validatePost.validateUpdate,
+PostController.update);
+
+// Requisito 11 - Sua aplicação deve ter o endpoint DELETE post/:id
+
+app.delete('/post/:id',
+  validateToken,
+  validatePost.validateDelete,
+  PostController.remove);
+
+// Requisito 12 - Sua aplicação deve ter o endpoint DELETE /user/me
+
+app.delete('/user/me',
+  validateToken,
+  UserController.remove);
