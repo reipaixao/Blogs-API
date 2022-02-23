@@ -30,8 +30,9 @@ const getById = rescue(async (req, res) => {
 const update = rescue(async (req, res) => {
   const { id } = req.params;
   const { title, content } = req.body;
+  const userId = req.user.id;
 
-  const post = await Post.update(id, title, content);
+  const post = await Post.update(id, title, content, userId);
 
   res.status(200).json(post);
 });
@@ -49,10 +50,22 @@ const remove = rescue(async (req, res) => {
   res.status(204).end();
 });
 
+const search = async (req, res) => {
+  const { q } = req.query;
+  
+  if (q !== undefined) {
+      const posts = await Post.search(q);
+      return res.status(200).json(posts);
+  }
+
+  res.status(400).json({ message: 'Must provide a "q" parameter' });
+};
+
 module.exports = {
   add,
   getAll,
   getById,
   update,
   remove,
+  search,
 };

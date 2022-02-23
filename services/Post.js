@@ -43,18 +43,19 @@ const update = async (id, title, content) => {
   );
 
   const updatedPost = await BlogPosts.findByPk(id, {
-    attributes: { exclude: ['id', 'published', 'updated'] },
-    include: [{
-        model: Categories,
-        as: 'categories',
-        through: { attributes: [] },
-    }],
-});
+    include: {
+      model: Categories, 
+      as: 'categories',
+      through: { attributes: [] },
+    },
+  });
 
 return updatedPost;
 };
 
 const remove = async (id) => BlogPosts.destroy({ where: { id } });
+
+const search = async (term) => BlogPosts.search(term);
 
 module.exports = {
   add,
@@ -62,4 +63,5 @@ module.exports = {
   getById,
   update,
   remove,
+  search,
 };
