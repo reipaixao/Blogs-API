@@ -5,11 +5,13 @@ require('dotenv/config');
 const UserController = require('./controllers/UserController');
 const Categories = require('./controllers/Categories');
 const LoginController = require('./controllers/LoginController');
+const PostController = require('./controllers/PostController');
 
 const validateUser = require('./controllers/middlewares/validateUser');
 const validateLogin = require('./controllers/middlewares/validateLogin');
 const validateToken = require('./controllers/middlewares/validateToken');
 const validateCateg = require('./controllers/middlewares/ValidateCateg');
+const validatePost = require('./controllers/middlewares/validatePost');
 
 const app = express();
 
@@ -53,3 +55,20 @@ validateCateg, Categories.add);
 app.get('/categories',
   validateToken,
   Categories.getAll);
+
+// Requisito 7 - Sua aplicação deve ter o endpoint POST /post
+app.post('/post',
+  validateToken,
+  validatePost.validateTitleAndContent,
+  validatePost.validateCategoryIds,
+  PostController.add);
+
+// Requisito 8 - Sua aplicação deve ter o endpoint GET /post
+app.get('/post',
+validateToken,
+PostController.getAll);
+
+// Requisito 9 - Sua aplicação deve ter o endpoint GET post/:id
+app.get('/post/:id',
+validateToken,
+PostController.getById);

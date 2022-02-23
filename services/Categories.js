@@ -12,7 +12,14 @@ const getAll = async () => {
   return categories;
 };
 
+const getById = async (id) => {
+  const category = await Categories.findByPk(id);
+  
+  return category;
+};
+
 module.exports = {
   add,
   getAll,
+  getById,
 };

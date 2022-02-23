@@ -309,7 +309,7 @@ Alguns exemplos:
   }
   ```
 
-- Deve conter uma tabela chamada **BlogPosts**, contendo dados com a seguinte estrutura::
+- Deve conter uma tabela chamada **BlogPostSs**, contendo dados com a seguinte estrutura::
 
   ```json
   {
@@ -666,7 +666,7 @@ Se o token for inexistente o resultado retornado deverá ser conforme exibido ab
 
 #### Os seguintes pontos serão avaliados:
 
-- Esse endpoint deve receber um _BlogPost_ no corpo da requisição e criá-lo no banco. O corpo da requisição deve ter a seguinte estrutura:
+- Esse endpoint deve receber um _BlogPostS_ no corpo da requisição e criá-lo no banco. O corpo da requisição deve ter a seguinte estrutura:
 
   ```json
   {
@@ -682,54 +682,54 @@ Se o token for inexistente o resultado retornado deverá ser conforme exibido ab
 
 ### Além disso, as seguintes verificações serão feitas:
 
-**[Será validado que é possível cadastrar um blogpost com sucesso]**
+**[Será validado que é possível cadastrar um BlogPostS com sucesso]**
 
-Se cadastrar um blogpost com sucesso o resultado retornado deverá ser conforme exibido abaixo, com um status http `201`:
+Se cadastrar um BlogPostS com sucesso o resultado retornado deverá ser conforme exibido abaixo, com um status http `201`:
 
-![Criar blogspot com sucesso](./public/criarblogpost.png)
+![Criar blogspot com sucesso](./public/criarBlogPostS.png)
 
-**[Será validado que não é possível cadastrar um blogpost sem o campo `title`]**
+**[Será validado que não é possível cadastrar um BlogPostS sem o campo `title`]**
 
 Se não conter o campo `title` o resultado retornado deverá ser conforme exibido abaixo, com um status http `400`:
 
-![blogpost sem content](./public/camposemtitle.png)
+![BlogPostS sem content](./public/camposemtitle.png)
 
-**[Será validado que não é possível cadastrar um blogpost sem o campo `content`]**
+**[Será validado que não é possível cadastrar um BlogPostS sem o campo `content`]**
 
 Se não conter o campo `content` o resultado retornado deverá ser conforme exibido abaixo, com um status http `400`:
 
-![blogpost sem content](./public/semcampocontent.png)
+![BlogPostS sem content](./public/semcampocontent.png)
 
-**[Será validado que não é possível cadastrar um blogpost sem o campo `categoryIds`]**
+**[Será validado que não é possível cadastrar um BlogPostS sem o campo `categoryIds`]**
 
 Se não conter o campo `categoryIds` o resultado retornado deverá ser conforme exibido abaixo, com um status http `400`:
 
-![blogpost sem categoryId](./public/semcampocategoryid.png)
+![BlogPostS sem categoryId](./public/semcampocategoryid.png)
 
-**[Será validado que não é possível cadastrar um blogpost com uma `categoryIds` inexistente]**
+**[Será validado que não é possível cadastrar um BlogPostS com uma `categoryIds` inexistente]**
 
 Se o campo `categoryIds` tiver uma categoria inexistente, o resultado retornado deverá ser conforme exibido abaixo, com um status http `400`:
 
-![blogpost categoryId invalida](./public/cadastrarpostcomcategoryidinvalida.png)
+![BlogPostS categoryId invalida](./public/cadastrarpostcomcategoryidinvalida.png)
 
 
-**[Será validado que não é possível cadastrar um blogpost sem o token]**
+**[Será validado que não é possível cadastrar um BlogPostS sem o token]**
 
 Se não conter o token o resultado retornado deverá ser conforme exibido abaixo, com um status http `401`:
 
-![blogpost sem token ](./public/criarpostsemtoken.png)
+![BlogPostS sem token ](./public/criarpostsemtoken.png)
 
-**[Será validado que não é possível cadastrar um blogpost com o token inválido]**
+**[Será validado que não é possível cadastrar um BlogPostS com o token inválido]**
 
 Se o token for inválido o resultado retornado deverá ser conforme exibido abaixo, com um status http `401`:
 
-![blogpost com token inválido](./public/criarposttokeninvalido.png)
+![BlogPostS com token inválido](./public/criarposttokeninvalido.png)
 
 ### 8 - Sua aplicação deve ter o endpoint GET `/post`
 
 #### Os seguintes pontos serão avaliados:
 
-- Esse endpoint deve listar todos os _BlogPosts_ e retorná-los na seguinte estrutura:
+- Esse endpoint deve listar todos os _BlogPostSs_ e retorná-los na seguinte estrutura:
 
 ```json
 [
@@ -758,29 +758,29 @@ Se o token for inválido o resultado retornado deverá ser conforme exibido abai
 
 ### Além disso, as seguintes verificações serão feitas:
 
-**[Será validado que é possível listar blogpost com sucesso]**
+**[Será validado que é possível listar BlogPostS com sucesso]**
 
-Se listar os blogpost com sucesso o resultado retornado deverá ser conforme exibido abaixo, com um status http `200`:
+Se listar os BlogPostS com sucesso o resultado retornado deverá ser conforme exibido abaixo, com um status http `200`:
 
-![Criar blogspot com sucesso](./public/listarumblogpost.png)
+![Criar blogspot com sucesso](./public/listarumBlogPostS.png)
 
-**[Será validado que não é possível listar blogpost sem token]**
+**[Será validado que não é possível listar BlogPostS sem token]**
 
 Se não conter o token o resultado retornado deverá ser conforme exibido abaixo, com um status http `401`:
 
-![blogpost sem token ](./public/listarpostsemtoken.png)
+![BlogPostS sem token ](./public/listarpostsemtoken.png)
 
-**[Será validado que não é possível listar blogpost com token inválido]**
+**[Será validado que não é possível listar BlogPostS com token inválido]**
 
 Se o token for inválido o resultado retornado deverá ser conforme exibido abaixo, com um status http `401`:
 
-![blogpost com token inválido](./public/listarposttokeninvalido.png)
+![BlogPostS com token inválido](./public/listarposttokeninvalido.png)
 
 ### 9 - Sua aplicação deve ter o endpoint GET `post/:id`
 
 #### Os seguintes pontos serão avaliados:
 
-- Retorna um **BlogPost** com o `id` especificado. O retorno deve ter os seguinte formato:
+- Retorna um **BlogPostS** com o `id` especificado. O retorno deve ter os seguinte formato:
 
 ```json
   {
@@ -807,25 +807,25 @@ Se o token for inválido o resultado retornado deverá ser conforme exibido abai
 
 ### Além disso, as seguintes verificações serão feitas:
 
-**[Será validado que é possível listar um blogpost com sucesso]**
+**[Será validado que é possível listar um BlogPostS com sucesso]**
 
-Se listar um blogpost com sucesso o resultado retornado deverá ser conforme exibido abaixo, com um status http `200`:
+Se listar um BlogPostS com sucesso o resultado retornado deverá ser conforme exibido abaixo, com um status http `200`:
 
 ![Listar um post com sucesso](./public/listarumpostcomsucesso.png)
 
-**[Será validado que não é possível listar um blogpost sem token]**
+**[Será validado que não é possível listar um BlogPostS sem token]**
 
 Se não conter o token o resultado retornado deverá ser conforme exibido abaixo, com um status http `401`:
 
-![blogpost com token inválido](./public/listaumpostsemtoken.png)
+![BlogPostS com token inválido](./public/listaumpostsemtoken.png)
 
-**[Será validado que não é possível listar um blogpost com token inválido]**
+**[Será validado que não é possível listar um BlogPostS com token inválido]**
 
 Se o token for inválido o resultado retornado deverá ser conforme exibido abaixo, com um status http `401`:
 
-![blogpost com token inválido](./public/listaumposttokeninvalido.png)
+![BlogPostS com token inválido](./public/listaumposttokeninvalido.png)
 
-**[Será validado que não é possível listar um blogpost inexistente]**
+**[Será validado que não é possível listar um BlogPostS inexistente]**
 
 Se o id do post for inválido o resultado retornado deverá ser conforme exibido abaixo, com um status http `404`:
 
@@ -837,7 +837,7 @@ Se o id do post for inválido o resultado retornado deverá ser conforme exibido
 
 #### Os seguintes pontos serão avaliados:
 
-- O endpoint deve receber um **BlogPost** que irá sobrescrever o original com o `id` especificado na URL. Só deve ser permitido para o usuário que criou o **BlogPost**.
+- O endpoint deve receber um **BlogPostS** que irá sobrescrever o original com o `id` especificado na URL. Só deve ser permitido para o usuário que criou o **BlogPostS**.
 
 - A(s) categoria(s) do post **não** podem ser editadas, somente o `title` e `content`.
 
@@ -858,48 +858,48 @@ Se o id do post for inválido o resultado retornado deverá ser conforme exibido
 
 ### Além disso, as seguintes verificações serão feitas:
 
-**[Será validado que é possível editar um blogpost com sucesso]**
+**[Será validado que é possível editar um BlogPostS com sucesso]**
 
-Se editar um blogpost com sucesso o resultado retornado deverá ser conforme exibido abaixo, com um status http `200`:
+Se editar um BlogPostS com sucesso o resultado retornado deverá ser conforme exibido abaixo, com um status http `200`:
 
-![blogpost com token inválido](./public/editarpostcomsucesso.png)
+![BlogPostS com token inválido](./public/editarpostcomsucesso.png)
 
-**[Será validado que não é possível editar as categorias de um blogpost]**
+**[Será validado que não é possível editar as categorias de um BlogPostS]**
 
 Só será possível editar o título ou o conteúdo de um post.
 
 ![editar com campo categorias](./public/editarpostcomcategorias.png)
 
 
-**[Será validado que não é possível editar um blogpost com outro usuário]**
+**[Será validado que não é possível editar um BlogPostS com outro usuário]**
 
 Somente o usuário que criou o post poderá editá-lo.
 
-![blogpost com token inválido](./public/editarcomoutrousuario.png)
+![BlogPostS com token inválido](./public/editarcomoutrousuario.png)
 
-**[Será validado que não possível editar um blogpost sem token]**
+**[Será validado que não possível editar um BlogPostS sem token]**
 
 Se não conter o token o resultado retornado deverá ser conforme exibido abaixo, com um status http `401`:
 
-![blogpost com token inválido](./public/editarsemtoken.png)
+![BlogPostS com token inválido](./public/editarsemtoken.png)
 
-**[Será validado que não possível editar um blogpost com token inválido]**
+**[Será validado que não possível editar um BlogPostS com token inválido]**
 
 Se o token for inválido o resultado retornado deverá ser conforme exibido abaixo, com um status http `401`:
 
-![blogpost com token inválido](./public/editartokeninvalido.png)
+![BlogPostS com token inválido](./public/editartokeninvalido.png)
 
-**[Será validado que não possível editar um blogpost sem o campo `title`]**
+**[Será validado que não possível editar um BlogPostS sem o campo `title`]**
 
 Se não conter o campo `title` o resultado retornado deverá ser conforme exibido abaixo, com um status http `400`:
 
-![blogpost com token inválido](./public/editarsemtitle.png)
+![BlogPostS com token inválido](./public/editarsemtitle.png)
 
-**[Será validado que não possível editar um blogpost sem o campo `content`]**
+**[Será validado que não possível editar um BlogPostS sem o campo `content`]**
 
 Se não conter o campo `content` o resultado retornado deverá ser conforme exibido abaixo, com um status http `400`:
 
-![blogpost com token inválido](./public/editarsemcontent.png)
+![BlogPostS com token inválido](./public/editarsemcontent.png)
 
 ## Requisitos Bônus
 
@@ -907,7 +907,7 @@ Se não conter o campo `content` o resultado retornado deverá ser conforme exib
 
 #### Os seguintes pontos serão avaliados:
 
-- Deleta o post com o `id` especificado. Só deve ser permitido para o usuário que criou o **BlogPost**.
+- Deleta o post com o `id` especificado. Só deve ser permitido para o usuário que criou o **BlogPostS**.
 
 - Caso uma pessoa diferente de quem criou faça a requisição, deve retornar um código `status 401`.
 
@@ -917,35 +917,35 @@ Se não conter o campo `content` o resultado retornado deverá ser conforme exib
 
 ### Além disso, as seguintes verificações serão feitas:
 
-**[Será validado que é possível deletar um blogpost com sucesso]**
+**[Será validado que é possível deletar um BlogPostS com sucesso]**
 
-Se deletar blogpost com sucesso o resultado retornado deverá ser conforme exibido abaixo, com um status http `204`:
+Se deletar BlogPostS com sucesso o resultado retornado deverá ser conforme exibido abaixo, com um status http `204`:
 
-![blogpost com token inválido](./public/deletarpostcomsucesso.png)
+![BlogPostS com token inválido](./public/deletarpostcomsucesso.png)
 
-**[Será validado que não é possível deletar um blogpost com outro usuário]**
+**[Será validado que não é possível deletar um BlogPostS com outro usuário]**
 
-Se não for o dono do blogpost o resultado retornado deverá ser conforme exibido abaixo, com um status http `401`:
+Se não for o dono do BlogPostS o resultado retornado deverá ser conforme exibido abaixo, com um status http `401`:
 
-![blogpost com token inválido](./public/deletarpostcomoutrousuario.png)
+![BlogPostS com token inválido](./public/deletarpostcomoutrousuario.png)
 
-**[Será validado que não é possível deletar um blogpost inexistente]**
+**[Será validado que não é possível deletar um BlogPostS inexistente]**
 
-Se o blogpost nao existir o resultado retornado deverá ser conforme exibido abaixo, com um status http `404`:
+Se o BlogPostS nao existir o resultado retornado deverá ser conforme exibido abaixo, com um status http `404`:
 
-![blogpost com token inválido](./public/deletarpostquenaoexiste.png)
+![BlogPostS com token inválido](./public/deletarpostquenaoexiste.png)
 
-**[Será validado que não é possível deletar um blogpost sem o token]**
+**[Será validado que não é possível deletar um BlogPostS sem o token]**
 
 Se não contém o token o resultado retornado deverá ser conforme exibido abaixo, com um status http `401`:
 
-![blogpost com token inválido](./public/deletarpostsemtoken.png)
+![BlogPostS com token inválido](./public/deletarpostsemtoken.png)
 
-**[Será validado que não é possível deletar um blogpost com o token inválido]**
+**[Será validado que não é possível deletar um BlogPostS com o token inválido]**
 
 Se o token for inválido o resultado retornado deverá ser conforme exibido abaixo, com um status http `401`:
 
-![blogpost com token inválido](./public/deletarpostcomtokeninvalido.png)
+![BlogPostS com token inválido](./public/deletarpostcomtokeninvalido.png)
 
 ### 12 - Sua aplicação deve ter o endpoint DELETE `/user/me`
 
@@ -977,7 +977,7 @@ Se não conter o token o resultado retornado deverá ser conforme exibido abaixo
 
 #### Os seguintes pontos serão avaliados:
 
-- Retorna uma array de **BlogPosts** que contenham em seu título, ou conteúdo, o termo pesquisado no `queryParam` da URL. O retorno deve ter o seguinte formato:
+- Retorna uma array de **BlogPostSs** que contenham em seu título, ou conteúdo, o termo pesquisado no `queryParam` da URL. O retorno deve ter o seguinte formato:
 
 ```json
 [
@@ -1004,45 +1004,45 @@ Se não conter o token o resultado retornado deverá ser conforme exibido abaixo
 ]
   ```
 
-- Caso nenhum **BlogPost** satisfaça a busca, retorne um array vazio.
+- Caso nenhum **BlogPostS** satisfaça a busca, retorne um array vazio.
 
 ### Além disso, as seguintes verificações serão feitas:
 
-**[Será validado que é possível buscar um blogpost pelo `title`]**
+**[Será validado que é possível buscar um BlogPostS pelo `title`]**
 
 Se a buscar for pelo `title` o resultado retornado deverá ser conforme exibido abaixo, com um status http `200`:
 
-![blogpost com token inválido](./public/buscarpostpelotitle.png)
+![BlogPostS com token inválido](./public/buscarpostpelotitle.png)
 
-**[Será validado que é possível buscar um blogpost pelo `content`]**
+**[Será validado que é possível buscar um BlogPostS pelo `content`]**
 
 Se a buscar for pelo `content` o resultado retornado deverá ser conforme exibido abaixo, com um status http `200`:
 
-![blogpost com token inválido](./public/buscarpostpelocontent.png)
+![BlogPostS com token inválido](./public/buscarpostpelocontent.png)
 
-**[Será validado que é possível buscar todos os blogpost quando passa a busca vazia']**
+**[Será validado que é possível buscar todos os BlogPostS quando passa a busca vazia']**
 
 Se a buscar for vazia o resultado retornado deverá ser conforme exibido abaixo, com um status http `200`:
 
-![blogpost com token inválido](./public/listarpostcampovazio.png)
+![BlogPostS com token inválido](./public/listarpostcampovazio.png)
 
-**[Será validado que é possível buscar um blogpost inexistente e retornar array vazio]**
+**[Será validado que é possível buscar um BlogPostS inexistente e retornar array vazio]**
 
 Se a buscar um post inexistente o resultado retornado deverá ser conforme exibido abaixo, com um status http `200`:
 
-![blogpost com token inválido](./public/listarumpostquenaoexiste.png)
+![BlogPostS com token inválido](./public/listarumpostquenaoexiste.png)
 
-**[Será validado que não é possível buscar um blogpost sem o token]**
+**[Será validado que não é possível buscar um BlogPostS sem o token]**
 
 Se não contém o token o resultado retornado deverá ser conforme exibido abaixo, com um status http `401`:
 
-![blogpost com token inválido](./public/buscarpostsemtoken.png)
+![BlogPostS com token inválido](./public/buscarpostsemtoken.png)
 
-**[Será validado que não é possível buscar um blogpost com o token inválido]**
+**[Será validado que não é possível buscar um BlogPostS com o token inválido]**
 
 Se o token for inválido o resultado retornado deverá ser conforme exibido abaixo, com um status http `401`:
 
-![blogpost com token inválido](./public/buscarpostcomtokeninvalido.png)
+![BlogPostS com token inválido](./public/buscarpostcomtokeninvalido.png)
 
 --- 
 
