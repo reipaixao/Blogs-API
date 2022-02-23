@@ -59,7 +59,7 @@ app.get('/categories',
 // Requisito 7 - Sua aplicação deve ter o endpoint POST /post
 app.post('/post',
   validateToken,
-  validatePost.validateTitleAndContent,
+  validatePost.validateTitleAndContent2,
   validatePost.validateCategoryIds,
   PostController.add);
 
